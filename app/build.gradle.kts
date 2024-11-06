@@ -1,7 +1,11 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
+
+
 
 android {
     namespace = "com.rishi.androicomponents"
@@ -66,4 +70,24 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // for navGraph
+    implementation(libs.androidx.navigation.compose)
+    //hilt
+    implementation(libs.dagger.hilt.android)
+    implementation(libs.hilt.navigation.compose)
+    implementation(libs.hilt.work)
+    kapt(libs.dagger.hilt.android.compiler)
+    kapt(libs.hilt.compiler)
+
+    // work-work
+    implementation(libs.work.runtime)
+
+    // permission
+    implementation ("com.google.accompanist:accompanist-permissions:0.31.1-alpha")
+
+    // work manager with coroutine
+    val work_version = "2.9.1"
+    implementation("androidx.work:work-runtime-ktx:$work_version")
+
 }
