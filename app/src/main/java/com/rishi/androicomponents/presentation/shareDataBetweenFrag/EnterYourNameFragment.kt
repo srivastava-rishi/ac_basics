@@ -40,15 +40,15 @@ class EnterYourNameFragment : Fragment() {
         val btnOpenFragmentOne: Button = view.findViewById(R.id.next_button)
 
 // Prepare your Bundle
-        val bundle = Bundle()
-        bundle.putString(
-            "yourName",
-            view.findViewById<EditText>(R.id.enter_your_name).text.toString()
-        )
 // Prepare your fragment SeeYourNameFragment
-        val f2 = SeeYourNameFragment()
-        f2.arguments = bundle
         btnOpenFragmentOne.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString(
+                "yourName",
+                view.findViewById<EditText>(R.id.enter_your_name).text.toString()
+            )
+            val f2 = SeeYourNameFragment()
+            f2.arguments = bundle
             activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.framelayot, f2)
                 ?.commit()
         }

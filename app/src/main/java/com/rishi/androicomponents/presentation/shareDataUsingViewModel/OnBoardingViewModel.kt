@@ -17,6 +17,21 @@ class OnBoardingViewModel : ViewModel() {
             OnBoardingData.MOTHERS_NAME -> _uiState.value = _uiState.value?.copy(mothersName = data)
         }
     }
+
+    /*
+    fun updateName(data: String) {
+        _uiState.value = _uiState.value?.copy(name = data)
+    }
+    fun updateAge(data: String) {
+        _uiState.value = _uiState.value?.copy(age = data)
+    }
+    fun updateFatherName(data: String) {
+        _uiState.value = _uiState.value?.copy(fathersName = data)
+    }
+    fun updateMotherName(data: String) {
+        _uiState.value = _uiState.value?.copy(mothersName = data)
+    }
+     */
 }
 
 

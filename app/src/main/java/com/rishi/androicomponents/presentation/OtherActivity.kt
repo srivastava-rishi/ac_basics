@@ -22,10 +22,10 @@ class OtherActivity : AppCompatActivity() {
         val btnOpenFragmentOne: Button = findViewById(R.id.btn_open_fragment_one)
         val btnOpenFragmentTwo: Button = findViewById(R.id.btn_open_fragment_two)
 
+      //  supportFragmentManager.beginTransaction().replace(R.id.frameLayout,f2).commit()
+
         btnOpenFragmentOne.setOnClickListener {
-            val ft = supportFragmentManager.beginTransaction()
-            ft.replace(R.id.frameLayout, f1)
-            ft.commit()
+            supportFragmentManager.beginTransaction().replace(R.id.frameLayout, f1).commit()
         }
         btnOpenFragmentTwo.setOnClickListener {
             val ft = supportFragmentManager.beginTransaction()
@@ -43,6 +43,7 @@ fun attachFragment(fragmentHolderLayoutId: Int, fragment: Fragment?, tag: String
     val manager: FragmentManager = supportFragmentManager
     val ft: FragmentTransaction = manager.beginTransaction()
 
+// supportFragmentManager.beginTransaction().add(R.id.framelayout,Fragment()).commit()
     //Hide other fragments
     for (frag in manager.fragments) {
         ft.hide(frag)

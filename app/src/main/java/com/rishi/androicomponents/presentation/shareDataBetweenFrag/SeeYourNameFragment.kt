@@ -36,11 +36,17 @@ class SeeYourNameFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_see_your_name, container, false)
         val tv = view.findViewById<TextView>(R.id.tvActualName)
-       //
+        //
         val a = arguments
 //
-        val yourName = a?.getString("")
+        val yourName = a?.getString("yourName")
         tv.text = yourName
+        /*
+        better way
+                arguments?.let {
+                    tv.text = it.getString("yourName")
+                }
+                */
         return view
     }
 
