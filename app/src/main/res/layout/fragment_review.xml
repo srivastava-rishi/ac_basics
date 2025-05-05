@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/black"
+    android:gravity="center_horizontal|center_vertical"
+    android:orientation="vertical"
+    android:paddingHorizontal="24.dp"
+    tools:context=".presentation.shareDataBetweenFrag.EnterYourNameFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp">
+
+        <TextView
+            android:id="@+id/tv_your_name_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your name is - "
+            android:textColor="@color/white"
+            android:textSize="16.sp" />
+
+        <TextView
+            android:id="@+id/tv_your_name_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rishi"
+            android:textColor="@color/white"
+            android:textSize="16.sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp">
+
+        <TextView
+            android:id="@+id/tv_your_age_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your age is - "
+            android:textColor="@color/white"
+            android:textSize="16.sp" />
+
+        <TextView
+            android:id="@+id/tv_your_age_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12"
+            android:textColor="@color/white"
+            android:textSize="16.sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp">
+
+        <TextView
+            android:id="@+id/tv_your_father_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your father's name  is - "
+            android:textColor="@color/white"
+            android:textSize="16.sp" />
+
+        <TextView
+            android:id="@+id/tv_your_father_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ravikant Prasad"
+            android:textColor="@color/white"
+            android:textSize="16.sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="24dp">
+
+        <TextView
+            android:id="@+id/tv_your_mothers_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your father's name  is - "
+            android:textColor="@color/white"
+            android:textSize="16.sp" />
+
+        <TextView
+            android:id="@+id/tv_your_mothers_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rajana Prasad"
+            android:textColor="@color/white"
+            android:textSize="16.sp" />
+    </LinearLayout>
+
+</LinearLayout>
