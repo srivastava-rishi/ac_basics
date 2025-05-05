@@ -24,9 +24,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
-import com.rishi.androicomponents.networkutility.ConnectionState
-import com.rishi.androicomponents.networkutility.connectivityState
-import com.rishi.androicomponents.service.BService
+import com.rishi.androicomponents.ac.networkutility.ConnectionState
+import com.rishi.androicomponents.ac.networkutility.connectivityState
+import com.rishi.androicomponents.ac.service.BService
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 

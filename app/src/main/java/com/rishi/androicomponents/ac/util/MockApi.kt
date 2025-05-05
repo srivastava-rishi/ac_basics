@@ -1,4 +1,4 @@
-package com.rishi.androicomponents.util
+package com.rishi.androicomponents.ac.util
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay

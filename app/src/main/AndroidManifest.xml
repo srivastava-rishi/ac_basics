@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
         <service
-            android:name=".service.BService"
+            android:name=".ac.service.BService"
             android:foregroundServiceType="dataSync" />
     </application>
 

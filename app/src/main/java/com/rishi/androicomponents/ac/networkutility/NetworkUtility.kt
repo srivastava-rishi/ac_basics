@@ -1,4 +1,4 @@
-package com.rishi.androicomponents.networkutility
+package com.rishi.androicomponents.ac.networkutility
 
 import android.annotation.SuppressLint
 import android.content.Context

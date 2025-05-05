@@ -1,4 +1,4 @@
-package com.rishi.androicomponents.service
+package com.rishi.androicomponents.ac.service
 
 import android.app.NotificationManager
 import android.app.Service
@@ -8,7 +8,7 @@ import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.rishi.androicomponents.R
-import com.rishi.androicomponents.util.MockApi
+import com.rishi.androicomponents.ac.util.MockApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
