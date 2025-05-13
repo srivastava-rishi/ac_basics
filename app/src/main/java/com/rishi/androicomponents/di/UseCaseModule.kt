@@ -27,7 +27,6 @@ import javax.inject.Singleton
 @InstallIn(ActivityRetainedComponent::class)
 object UseCaseModule {
 
-    @ActivityScoped
     @ActivityRetainedScoped
     @Provides
     fun provideStudentDataUseCase(repository: StudentRepository) = StudentDataUseCase(repository)
