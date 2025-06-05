@@ -14,5 +14,11 @@ class OnBoardingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_on_boarding)
         supportFragmentManager.beginTransaction()
             .replace(R.id.sharedFrameLayout, YourNameFragment()).commit()
+        this.viewModelStore
+    }
+
+    @Deprecated("Use a {@link androidx.lifecycle.ViewModel} to store non config state.")
+    override fun onRetainCustomNonConfigurationInstance(): Any? {
+        return super.onRetainCustomNonConfigurationInstance()
     }
 }

@@ -23,12 +23,13 @@ class YourNameFragment : Fragment() {
         val et1 = view.findViewById<EditText>(R.id.your_name)
         val btn = view.findViewById<Button>(R.id.next_button_name)
 
-        onboardingViewModel = ViewModelProvider(requireActivity())[OnBoardingViewModel::class.java]
+        onboardingViewModel = ViewModelProvider(requireActivity())[OnBoardingViewModel::class]
         // navigate as well as save data to viewModel
         btn.setOnClickListener {
             onboardingViewModel.updateUiState(OnBoardingData.NAME, et1.text.toString())
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.sharedFrameLayout, AgeFragment())
+                ?.addToBackStack(null)
                 ?.commit()
         }
         return view

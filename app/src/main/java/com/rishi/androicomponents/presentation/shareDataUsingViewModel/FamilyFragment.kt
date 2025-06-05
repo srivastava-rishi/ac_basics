@@ -31,6 +31,7 @@ class FamilyFragment : Fragment() {
             onboardingViewModel.updateUiState(OnBoardingData.MOTHERS_NAME, et2.text.toString())
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.sharedFrameLayout, ReviewFragment())
+                ?.addToBackStack(null)
                 ?.commit()
         }
 

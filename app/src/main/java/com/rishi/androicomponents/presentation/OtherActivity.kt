@@ -1,6 +1,8 @@
 package com.rishi.androicomponents.presentation
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -15,12 +17,14 @@ class OtherActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_other)
+        Log.d("whatthefuck!!", "OtherActivity - onCreate: ")
 
         val f1 = FirstFragment()
         val f2 = SecondFragment()
 
         val btnOpenFragmentOne: Button = findViewById(R.id.btn_open_fragment_one)
         val btnOpenFragmentTwo: Button = findViewById(R.id.btn_open_fragment_two)
+        val uniqieActivity: Button = findViewById(R.id.btn_open_uniquie_sctivity)
 
       //  supportFragmentManager.beginTransaction().replace(R.id.frameLayout,f2).commit()
 
@@ -33,6 +37,41 @@ class OtherActivity : AppCompatActivity() {
             ft.commit()
         }
 
+        uniqieActivity.setOnClickListener {
+            startActivity(Intent(this,UniqueActivity::class.java))
+        }
+
+    }
+
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("whatthefuck!!", "OtherActivity - onStart: ")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("whatthefuck!!", "OtherActivity - onResume: ")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("whatthefuck!!", "OtherActivity - onPause: ")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("whatthefuck!!", "OtherActivity - onStop: ")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.d("whatthefuck!!", "OtherActivity - onStop: ")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("whatthefuck!!", "OtherActivity - onDestroy: ")
     }
 }
 
