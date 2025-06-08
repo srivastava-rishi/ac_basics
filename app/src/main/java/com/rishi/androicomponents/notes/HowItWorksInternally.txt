@@ -1,0 +1,11 @@
+🔄 Summary Flow :-
+
+1. You call: navController.navigate(ProfileRoute("rishi", 25))
+↓
+2. Navigation serializes it → "ProfileRoute?userId=rishi&age=25" // Some compose function do this
+↓
+3. Composable receives it → Jetpack deserializes to ProfileRoute("rishi", 25)
+↓
+4. You access: route.userId (as String), route.age (as Int)
+↓
+5. ViewModel can access same args via SavedStateHandle

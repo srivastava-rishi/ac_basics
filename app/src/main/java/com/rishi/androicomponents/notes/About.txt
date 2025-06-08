@@ -1,0 +1,48 @@
+What is "Type Safe Navigation" in Kotlin DSL?
+
+1. You define screens and their arguments using Kotlin classes/objects, not plain strings.
+2. You access arguments with full compiler support, rather than manually extracting values from SavedStateHandle
+
+meaning - The compiler checks your navigation arguments like it checks any regular Kotlin variable or function parameter
+— no runtime surprises, no typo risks, and full auto-completion
+
+eg :-
+
+ data class ProfileRoute(val userId: String)
+
+ navController.navigate(ProfileRoute("123"))
+
+ composable<ProfileRoute> {
+    val userId = it.destination.route.userId // fully type-safe
+ }
+
+ Benefit of using it :-
+ 1. Compile-Time Safety
+ 2. Auto-completion & Refactoring
+ 3. Type Inference
+
+ 📌 What is Type Inference?
+ Kotlin automatically understands the type of a variable without you writing it.
+
+ Example: val name = "Ravi" → Kotlin knows it's a String.
+
+ 🆚 Old Way (Without Type Safety)
+ val userId = backStackEntry.arguments?.getString("userId")
+
+ 1. You must know and type the key as a string.
+ 2. Type is not guaranteed – may be null or incorrect.
+ 3. No auto-suggestions or compiler help.
+
+✅ New Way (With Type-Safe Navigation DSL)
+
+ data class ProfileRoute(val userId: String)
+
+ composable<ProfileRoute> {
+     val userId = it.destination.route.userId
+ }
+
+
+
+
+
+

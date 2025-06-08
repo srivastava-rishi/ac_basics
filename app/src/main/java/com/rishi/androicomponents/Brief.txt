@@ -1,0 +1,35 @@
+Benefits of Type-Safe Navigation in Kotlin DSL : -
+
+1. Full Type Safety
+Arguments are passed as typed Kotlin properties.
+
+You no longer rely on string keys like "userId" or "age".
+
+2. Type Inference
+Kotlin automatically knows argument types (e.g., Int, String, Boolean).
+
+No need to manually declare or cast types.
+
+3. Enum Support
+You can directly pass enums in route definitions:
+
+4. No Runtime Crashes for Missing or Wrong Keys
+
+5. Autocomplete & Refactoring Support
+
+6. Cleaner and Shorter
+
+7. Optional Parameters
+
+8. Supports Custom Parameters (Nested Data Classes)
+
+ We can pass complex types like another data class:
+
+
+@Serializable
+data class User(val name: String, val age: Int)
+
+@Serializable
+data class UserDetailRoute(val user: User)
+
+9. Compatible with Kotlin Multiplatform Mobile (KMM)
