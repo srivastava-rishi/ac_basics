@@ -13,6 +13,7 @@ import com.rishi.androicomponents.presentation.screenA.ScreenA
 import com.rishi.androicomponents.presentation.screenB.ScreenB
 import com.rishi.androicomponents.presentation.screenC.ScreenC
 import com.rishi.androicomponents.presentation.screenD.ScreenD
+import com.rishi.androicomponents.presentation.screenE.ScreenE
 import kotlin.reflect.KClass
 
 
@@ -57,6 +58,11 @@ fun AppNavGraph(
         composable<AppScreen.ScreenDRoute> {
             ScreenD(
                 onAction = navActions::navigateFromScreenD
+            )
+        }
+        composable<AppScreen.ScreenERoute> {
+            ScreenE(
+                onAction = navActions::navigateFromScreenE
             )
         }
     }

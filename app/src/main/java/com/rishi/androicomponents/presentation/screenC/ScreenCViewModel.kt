@@ -7,7 +7,6 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.navigation.toRoute
 import com.rishi.androicomponents.navigation.AppScreen
-import com.rishi.androicomponents.presentation.screenA.ScreenASideEffect
 
 class ScreenCViewModel(
     savedStateHandle: SavedStateHandle

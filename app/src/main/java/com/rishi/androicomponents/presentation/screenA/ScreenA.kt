@@ -1,5 +1,8 @@
 package com.rishi.androicomponents.presentation.screenA
 
+import android.app.TaskStackBuilder
+import android.content.Intent
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -19,6 +22,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
@@ -26,7 +30,17 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.rishi.androicomponents.R
 import com.rishi.androicomponents.navigation.ScreenAActions
+import androidx.core.net.toUri
+import com.rsstudio.fallen.presentation.screenA.ScreenASideEffect
+import com.rsstudio.fallen.presentation.screenA.ScreenAUiEvent
+import com.rsstudio.fallen.presentation.screenA.ScreenAUiState
+import com.rsstudio.fallen.presentation.screenA.ScreenAViewModel
 
+
+const val APP_DEEPLINK_SCHEME = "mv://fallen/"
+const val DEEPLINK_SCREEN_B = "screenB"
+const val DEEPLINK_SCREEN_C = "screenC"
+const val uriScreenE = "mv://fallen/YourScreen"
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -42,7 +56,10 @@ fun ScreenA(
                 navigationIcon = {
                     Icon(
                         painter = painterResource(id = R.drawable.ic_arrow),
-                        contentDescription = "backArrow"
+                        contentDescription = "backArrow",
+                        modifier = Modifier.clickable {
+                            onAction(ScreenAActions.OnBack)
+                        }
                     )
                 },
                 actions = {
@@ -74,6 +91,7 @@ fun ScreenAContent(
     uiState: ScreenAUiState,
     onEvent: (ScreenAUiEvent) -> Unit
 ) {
+    val context = LocalContext.current
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -120,6 +138,37 @@ fun ScreenAContent(
         }) {
             Text("Go to Next Screen")
         }
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        Button(onClick = {
+//            val deepLinkIntent = Intent(Intent.ACTION_VIEW, APP_DEEPLINK_SCHEME.toUri())
+//            val stackBuilder = TaskStackBuilder.create(context).apply {
+//                addNextIntentWithParentStack(deepLinkIntent)
+//            }
+//            stackBuilder.startActivities()
+            context.startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    //    (APP_DEEPLINK_SCHEME + DEEPLINK_SCREEN_C).toUri()
+                    (APP_DEEPLINK_SCHEME).toUri()
+                )
+            )
+        }) {
+            Text("Open Screen A of fallen Module")
+        }
+        Spacer(modifier = Modifier.height(24.dp))
+        Button(onClick = {
+            // subGraph stuffs
+            context.startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    (uriScreenE).toUri()
+                )
+            )
+        }) {
+            Text("Open SubGraph Stuff of fallen Module")
+        }
     }
 }
 
@@ -135,7 +184,7 @@ private fun handleSideEffects(
         is ScreenASideEffect.OpenScreenB -> {
             onAction(
                 ScreenAActions.OpenScreenB(
-                    name = effect.name,
+                    name = effect.id.toString(),
                     age = effect.age,
                     gender = effect.gender
                 )

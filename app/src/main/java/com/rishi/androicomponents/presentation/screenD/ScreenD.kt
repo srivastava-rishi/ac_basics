@@ -25,6 +25,10 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.rishi.androicomponents.R
 import com.rishi.androicomponents.navigation.ScreenDActions
+import com.rsstudio.fallen.presentation.screenD.ScreenDSideEffect
+import com.rsstudio.fallen.presentation.screenD.ScreenDUiEvent
+import com.rsstudio.fallen.presentation.screenD.ScreenDUiState
+import com.rsstudio.fallen.presentation.screenD.ScreenDViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

@@ -24,9 +24,13 @@ class AppNavigationActions(
                     AppScreen.ScreenBRoute(
                         name = actions.name,
                         age = actions.age,
-                        gender = actions.gender
+                        gender = null
                     )
                 )
+            }
+
+            ScreenAActions.OnBack -> {
+                finishActivity()
             }
         }
     }
@@ -68,6 +72,14 @@ class AppNavigationActions(
                         actions.name
                     )
                 }
+                back()
+            }
+        }
+    }
+
+    fun navigateFromScreenE(actions: ScreenEActions) {
+        when (actions) {
+            ScreenEActions.OnBack -> {
                 back()
             }
         }

@@ -14,6 +14,7 @@ class ScreenBViewModel(
 ) : ViewModel() {
 
     private val navData = savedStateHandle.toRoute<AppScreen.ScreenBRoute>()
+
     // alternative way
 
 
@@ -28,7 +29,7 @@ class ScreenBViewModel(
         Log.d("lion666", "savedStateHandle.toRoute :- }")
 
         uiState = uiState.copy(
-            name = navData.name, age = navData.age.toString(), gender = navData.gender
+            name = navData.name, age = navData.age.toString()
         )
     }
 

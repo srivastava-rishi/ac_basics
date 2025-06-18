@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "AndroiComponents"
 include(":app")
+include(":fallen")

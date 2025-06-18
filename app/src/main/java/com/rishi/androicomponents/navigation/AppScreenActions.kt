@@ -6,6 +6,7 @@ package com.rishi.androicomponents.navigation
 
 
 sealed class ScreenAActions {
+    data object OnBack : ScreenAActions()
     data class OpenScreenB(
         val name: String, val age: Int, val gender: String
     ) : ScreenAActions()
@@ -23,5 +24,9 @@ sealed class ScreenCActions {
 sealed class ScreenDActions {
     data object OnBack : ScreenDActions()
     data class BackToScreenC(val id: String, val name: String) : ScreenDActions()
+}
+
+sealed class ScreenEActions {
+    data object OnBack : ScreenEActions()
 }
 

@@ -14,11 +14,15 @@ sealed class AppScreen {
     data object ScreenARoute : AppScreen()
 
     @Serializable
-    data class ScreenBRoute(val name: String, val age: Int, val gender: String) : AppScreen()
+    data class ScreenBRoute(val name: String, val age: Int, val gender: String?) :
+        AppScreen()
 
     @Serializable
     data object ScreenCRoute : AppScreen()
 
     @Serializable
     data object ScreenDRoute : AppScreen()
+
+    @Serializable
+    data object ScreenERoute : AppScreen()
 }
