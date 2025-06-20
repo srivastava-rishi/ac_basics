@@ -95,4 +95,6 @@ dependencies {
     implementation ("androidx.camera:camera-lifecycle:1.3.2")
     implementation ("androidx.camera:camera-view:1.3.2")
 
+    // animation
+    implementation(libs.androidx.compose.animation)
 }

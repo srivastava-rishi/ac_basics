@@ -5,6 +5,10 @@ import androidx.camera.core.CameraSelector
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
+import androidx.compose.animation.ExperimentalSharedTransitionApi
+import androidx.compose.animation.SharedTransitionScope
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -28,6 +32,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -38,13 +43,15 @@ import androidx.compose.ui.viewinterop.AndroidView
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
+import com.rishi.androicomponents.LocalAnimatedVisibilityScope
 
-@OptIn(ExperimentalPermissionsApi::class)
+@OptIn(ExperimentalPermissionsApi::class, ExperimentalSharedTransitionApi::class)
 @Composable
-fun ScreenB() {
+fun SharedTransitionScope.ScreenB() {
     val cameraPermissionState = rememberPermissionState(Manifest.permission.CAMERA)
-    val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
+    val animatedVisibilityScope = LocalAnimatedVisibilityScope.current
+
 
     LaunchedEffect(Unit) {
         if (!cameraPermissionState.status.isGranted) {
@@ -52,7 +59,21 @@ fun ScreenB() {
         }
     }
 
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(
+        modifier = Modifier
+            .sharedBounds(
+                sharedContentState = rememberSharedContentState(key = SCAN_AND_PAY_EXPLODE),
+                animatedVisibilityScope = animatedVisibilityScope,
+                boundsTransform = { _, _ ->
+                    tween(
+                        durationMillis = 400,
+                        easing = FastOutSlowInEasing
+                    )
+                }
+            )
+            .fillMaxSize()
+            .clip(RoundedCornerShape(40.dp))
+    ) {
         // Camera Preview Area
         if (cameraPermissionState.status.isGranted) {
             AndroidView(
@@ -147,4 +168,6 @@ fun ScreenB() {
         }
     }
 }
+
+const val SCAN_AND_PAY_EXPLODE = "SCAN_AND_PAY_EXPLODE"
 
