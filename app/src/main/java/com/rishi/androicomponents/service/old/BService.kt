@@ -1,18 +1,16 @@
-package com.rishi.androicomponents.service
+package com.rishi.androicomponents.service.old
 
 import android.app.NotificationManager
 import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.os.IBinder
-import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.rishi.androicomponents.R
 import com.rishi.androicomponents.util.MockApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
 
 
 class BService : Service() {
