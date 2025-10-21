@@ -53,7 +53,7 @@ class BService : Service() {
 
     private fun onStart() {
         val notification = NotificationCompat.Builder(this, "foregroundService")
-            .setSmallIcon(R.drawable.ic_android_black_24dp)
+            .setSmallIcon(android.R.drawable.ic_dialog_info)
             .setContentTitle("title")
             .setContentText("The is a description")
             .build()

@@ -9,24 +9,28 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.rishi.androicomponents.presentation.viewmodel.MainUiState
 import com.rishi.androicomponents.presentation.viewmodel.MainViewModel
 
 
 @Composable
-fun Hen(
+fun MainScreen(
     viewModel: MainViewModel = hiltViewModel(),
 ) {
-    HenContent(text = viewModel.uiState.text)
+    val context = LocalContext.current
+    //val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+   // MainScreenContent(text = .text)
 }
 
 
 @Composable
-fun HenContent(
+fun MainScreenContent(
     text: String
 ) {
     Column(
@@ -48,6 +52,6 @@ fun HenContent(
 
 @Preview(showBackground = true)
 @Composable
-fun preview() {
-    HenContent("Lion")
+fun MainScreenPreview() {
+    MainScreenContent("Lion")
 }

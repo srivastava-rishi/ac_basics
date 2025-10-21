@@ -18,10 +18,9 @@
         android:theme="@style/Theme.AndroiComponents"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.AndroiComponents">
+            android:name=".HomeActivity"
+            android:theme="@style/Theme.MyApp"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -31,6 +30,5 @@
             android:name=".service.BService"
             android:foregroundServiceType="dataSync" />
     </application>
-
 
 </manifest>
